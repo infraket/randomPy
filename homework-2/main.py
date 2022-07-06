@@ -31,7 +31,11 @@ def get_win_check(fd, symbol):
     for i in range(10):
         if fd[i][0] == fd[i][1] == fd[i][2] == fd[i][3] == fd[i][4] \
                 == symbol:
+
+
             flag_win = True
+
+
         if fd[i][1] == fd[i][2] == fd[i][3] == fd[i][4] == fd[i][5] \
                 == symbol:
             flag_win = True
@@ -122,7 +126,7 @@ def get_win_check(fd, symbol):
     if fd[3][0] == fd[4][1] == fd[5][2] == fd[6][3] == fd[7][4] \
             == symbol or fd[3][1] == fd[4][2] == fd[5][3] == fd[6][4] == fd[7][5] == symbol or fd[3][2] == fd[4][3] == \
             fd[5][4] == fd[6][5] == fd[7][6] == symbol \
-            or fd[3][3] == fd[4][5] == fd[5][6] == fd[6][7] == fd[7][8] == symbol\
+            or fd[3][3] == fd[4][5] == fd[5][6] == fd[6][7] == fd[7][8] == symbol \
             or fd[3][4] == fd[4][5] == fd[5][6] == fd[6][7] == fd[7][8] \
             == symbol or fd[3][5] == fd[4][6] == fd[5][7] == fd[6][8] == fd[7][9] == symbol or \
             fd[3][-1] == fd[4][-2] == fd[5][-3] == fd[6][-4] == fd[7][-5] == symbol or \
@@ -148,7 +152,7 @@ def get_win_check(fd, symbol):
     if fd[5][0] == fd[6][1] == fd[7][2] == fd[8][3] == fd[9][4] \
             == symbol or fd[5][1] == fd[6][2] == fd[7][3] == fd[8][4] == fd[9][5] == symbol or fd[5][2] == fd[6][3] == \
             fd[7][4] == fd[8][5] == fd[9][6] == symbol \
-            or fd[5][3] == fd[6][5] == fd[7][6] == fd[8][7] == fd[9][8] == symbol\
+            or fd[5][3] == fd[6][5] == fd[7][6] == fd[8][7] == fd[9][8] == symbol \
             or fd[5][4] == fd[6][5] == fd[7][6] == fd[8][7] == fd[9][8] \
             == symbol or fd[5][5] == fd[6][6] == fd[7][7] == fd[8][8] == fd[9][9] == symbol or \
             fd[5][-1] == fd[6][-2] == fd[7][-3] == fd[8][-4] == fd[9][-5] == symbol or \
@@ -200,6 +204,11 @@ while mainloop:
                 field[pos[1] // 50][pos[0] // 50] = "x"
                 x, y = random.randint(0, 9), random.randint(0, 9)
                 while field[x][y] != "":
+                    for line in field:
+                        if line.count('o') % 2 == 0 and line.count('o') >= 4:
+                            x *= 2
+                            y *= 2
+
                     x, y = random.randint(0, 9), random.randint(0, 9)
                 field[x][y] = "o"
 
