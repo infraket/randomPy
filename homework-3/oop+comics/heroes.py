@@ -13,9 +13,6 @@ class SuperHero:
     def find(self, place):
         self.finder.get_antagonist(place)
 
-    def evil(self, place):
-        self.finder.get_evil(place)
-
     @abstractmethod
     def attack(self):
         pass
@@ -75,9 +72,6 @@ class Kryptoman(SuperHero, Laser):
     def ultimate(self):
         if self.name == 'Clark Kent':
             self.incinerate_with_lasers()
-
-    def evil(self, place):
-        self.finder.get_evil(place)
 
 
 class Superman(Kryptoman):

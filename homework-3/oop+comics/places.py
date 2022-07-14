@@ -1,22 +1,33 @@
-class Kostroma:
+from abc import ABC, abstractmethod
+
+
+class Place(ABC):
+    name = 'Tatooine'
+
+    @abstractmethod
+    def get_evil(self):
+        print(f'Evil from {self.name}')
+
+
+class Kostroma(Place):
     name = 'Kostroma'
 
-    @staticmethod
-    def get_orcs():
+    def get_evil(self):
+        super().get_evil()
         print('Orcs hid in the forest')
 
 
-class Tokyo:
+class Tokyo(Place):
     name = [0, 22.55, 25]
 
-    @staticmethod
-    def get_godzilla():
+    def get_evil(self):
+        super().get_evil()
         print('Godzilla stands near a skyscraper')
 
 
-class Asgard:
+class Asgard(Place):
     name = 'Asgard'
 
-    @staticmethod
-    def get_joker():
+    def get_evil(self):
+        super().get_evil()
         print('Joker is now in Marvel')
